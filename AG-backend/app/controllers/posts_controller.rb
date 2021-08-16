@@ -1,4 +1,4 @@
-class ImagesController < ApplicationController
+class PostsController < ApplicationController
   before_action :set_image, only: [:destroy]
 
   def index
@@ -6,9 +6,13 @@ class ImagesController < ApplicationController
 
     render json: images
   end
+
+  def show
+
+  end
   
   def create
-    image = Image.new(image_params)
+    image = Post.new(image_params)
 
     if image.save
       render json: image, status: :created, location: image
