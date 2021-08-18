@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_image, only: [:destroy]
+  before_action :set_post, only: [:destroy, :show]
 
   def index
     posts = Post.all
@@ -8,7 +8,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    set_post
     render json: post
   end
   
@@ -23,7 +22,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    set_post
     post.destroy
   end
 
