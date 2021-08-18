@@ -2,36 +2,38 @@ class PostsController < ApplicationController
   before_action :set_image, only: [:destroy]
 
   def index
-    images = Image.all
+    posts = Post.all
 
-    render json: images
+    render json: posts
   end
 
   def show
-
+    set_post
+    render json: post
   end
   
   def create
-    image = Post.new(image_params)
+    post = Post.new(post_params)
 
-    if image.save
-      render json: image, status: :created, location: image
+    if post.save
+      render json: post, status: :created, location: post
     else
-      render json: image.errors, status: :unprocessable_entity
+      render json: post.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    image.destroy
+    set_post
+    post.destroy
   end
 
   private
    
-    def set_image
-      image = Image.find(params[:id])
+    def set_post
+      post = Post.find(params[:id])
     end
 
-    def image_params
-      params.require(:image).permit(:url, :description)
+    def post_params
+      params.require(:post).permit(:image_url, :description)
     end
 end
