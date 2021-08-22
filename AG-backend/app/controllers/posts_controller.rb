@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post.destroy
+    set_post.destroy
   end
 
   private
