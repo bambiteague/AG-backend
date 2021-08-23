@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   def destroy
     set_post.destroy
+    render json: {message: "successful"}
   end
 
   private
