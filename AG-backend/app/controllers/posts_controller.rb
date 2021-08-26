@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
   def index
     posts = Post.all
-
-    render json: posts
-  end
+    # byebug
+    render json: posts.to_json(:include => :comments)
+   end
 
   def show
     render json: post
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       render json: post.errors, status: :unprocessable_entity
     end
   end
+
 
   def destroy
     set_post.destroy

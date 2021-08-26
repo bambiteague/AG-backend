@@ -7,10 +7,6 @@ class CommentsController < ApplicationController
     render json: comments
   end
 
-  # def show
-  #   render json: comment
-  # end
-
   def create
     comment = Comment.new(comment_params)
 
@@ -20,6 +16,7 @@ class CommentsController < ApplicationController
       render json: comment.errors, status: :unprocessable_entity
     end
   end
+
 
   def destroy
     comment.destroy
@@ -32,6 +29,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-      params.fetch(:comment, {})
+      params.require(:comment).permit(:post_id, :content)
     end
 end
