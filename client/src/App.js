@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hello world</h1>
+      {console.log("butts")}
     </div>
   );
 }
 
 export default App;
+
+// NOTES: 
+// will need components for...
+  // submission form and related buttons
+  // displaying images after uploaded
+  // form for commenting on the image and related button(s)
+  // comments below appropriate image
+
+// NEXT:
+  // create voting component with up and down vote buttons for each image
+  // add a user sign up/login/logout with username&password
+  // update comment component to show related username next to comment
+  // ability to like comments???? would be a nice bonus to add
